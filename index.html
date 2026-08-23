@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>منصة الموديلز | الدليل الاحترافي المباشر</title>
+  <meta name="description" content="منصة رائدة لتصفح وتوظيف أفضل الموديلز والعارضين في المملكة، مع تواصل مباشر على الواتساب.">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Style -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px;">
+        <img src="kitchen1.png" alt="Production Kitchen Logo" class="logo-img" style="height: 40px; width: auto; border-radius: 8px;">
+        <span style="font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.25rem; letter-spacing: 0.5px; color: var(--gold-primary);">برودكشن كتشن</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link active">الرئيسية</a></li>
+        <li><a href="explore.html" class="nav-link">استكشف الموديلز</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="btn btn-outline-gold" id="navAuthBtn">
+          <i class="fa-solid fa-user"></i>
+          <span>تسجيل الدخول</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main-wrapper">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-bg-glow"></div>
+      
+      <div class="hero-tag">
+        <span class="gold-badge">
+          <i class="fa-solid fa-sparkles"></i>
+          المكان الأول للموديلز وصنّاع المحتوى
+        </span>
+      </div>
+
+      <h1 class="hero-title">
+        اكتشف أشطر <span class="gold-text">الموديلز والعارضين</span> وظبط شغلك معاهم مباشر
+      </h1>
+
+      <p class="hero-subtitle">
+        منصة احترافية بتجمع أشطر المواهب في عروض الأزياء والإعلانات. من غير وسطاء، كلمهم فوري على الواتساب.
+      </p>
+
+      <div class="hero-actions">
+        <a href="explore.html" class="btn btn-gold">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <span>دور على موديل</span>
+        </a>
+        <button class="btn btn-outline-gold" id="heroModelBtn">
+          <i class="fa-solid fa-star"></i>
+          <span>أنا موديل</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="container features-section">
+      <div class="section-header">
+        <h2 class="section-title">ليه تختار <span class="gold-text">منصة الموديلز</span>؟</h2>
+        <p class="section-desc">تجربة سهلة وفاخرة بتجمع بين البساطة والاحترافية</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fa-brands fa-whatsapp"></i>
+          </div>
+          <h3 class="feature-title">واتساب مباشر على طول</h3>
+          <p class="feature-text">
+            مش محتاج مراسلات طويلة أو وسطاء، هتقدر توصل لرقم الواتساب وتنسق معاه على طول.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fa-solid fa-image"></i>
+          </div>
+          <h3 class="feature-title">معرض صور زي إنستجرام</h3>
+          <p class="feature-text">
+            بروفايلات شياكة بتعرض شغلك ومقاساتك وبياناتك بكل دقة وجاذبية.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <h3 class="feature-title">تصفح مجاني بالكامل</h3>
+          <p class="feature-text">
+            الشركات والعملاء يقدروا يدوروا ويتصفحوا براحتهم خالص ومن غير ما يعملوا حساب.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Preview Section -->
+    <section class="container">
+      <div class="section-header">
+        <h2 class="section-title">نخبة من <span class="gold-text">الموديلز المتميزين</span></h2>
+        <p class="section-desc">أبرز المواهب في مجالات الأزياء والإعلانات اللي منورين المنصة</p>
+      </div>
+
+      <div class="models-grid" id="featuredModelsGrid">
+        <!-- Dynamic Featured Cards inserted via JS -->
+      </div>
+
+      <div style="text-align: center; margin-top: 40px;">
+        <a href="explore.html" class="btn btn-outline-gold">
+          <span>شوف كل الموديلز</span>
+          <i class="fa-solid fa-arrow-left"></i>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-logo" style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+      <img src="kitchen1.png" alt="Production Kitchen Logo" style="height: 32px; width: auto; border-radius: 6px;">
+      <span style="font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.25rem; letter-spacing: 0.5px; color: var(--gold-primary);">برودكشن كتشن</span>
+    </div>
+    <p>جميع الحقوق محفوظة © 2026 - برودكشن كتشن</p>
+  </footer>
+
+  <!-- Auth Modal Dialog -->
+  <div class="modal-overlay" id="authModal">
+    <div class="modal-box">
+      <div class="modal-close" id="modalCloseBtn">
+        <i class="fa-solid fa-xmark"></i>
+      </div>
+
+      <div class="modal-tabs">
+        <div class="modal-tab active" id="tabLogin">تسجيل الدخول</div>
+        <div class="modal-tab" id="tabRegister">اعمل حساب جديد</div>
+      </div>
+
+      <!-- Login Form -->
+      <form id="loginForm" class="auth-form">
+        <div class="form-group" style="margin-bottom: 16px;">
+          <label class="form-label">الإيميل</label>
+          <input type="email" id="loginEmail" class="input-control" placeholder="اكتب الإيميل" required>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 24px;">
+          <label class="form-label">كلمة السر</label>
+          <input type="password" id="loginPassword" class="input-control" placeholder="اكتب كلمة السر" required>
+        </div>
+
+        <button type="submit" class="btn btn-gold" style="width: 100%;">
+          <span>ادخل على حسابك</span>
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+      </form>
+
+      <!-- Register Form -->
+      <form id="registerForm" class="auth-form" style="display: none;">
+        <div class="form-group" style="margin-bottom: 14px;">
+          <label class="form-label">الاسم بالكامل</label>
+          <input type="text" id="regFullName" class="input-control" placeholder="اكتب اسمك بالكامل" required>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 14px;">
+          <label class="form-label">الإيميل</label>
+          <input type="email" id="regEmail" class="input-control" placeholder="اكتب الإيميل" required>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 24px;">
+          <label class="form-label">كلمة السر</label>
+          <input type="password" id="regPassword" class="input-control" placeholder="اكتب كلمة سر قوية" required>
+        </div>
+
+        <button type="submit" class="btn btn-gold" style="width: 100%;">
+          <span>اعمل حساب جديد</span>
+          <i class="fa-solid fa-user-plus"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification System -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Supabase CDN JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <!-- Configuration & Script -->
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

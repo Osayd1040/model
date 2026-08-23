@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لوحة التحكم | منصة الموديلز</title>
+  <meta name="description" content="لوحة تحكم الموديل لإدارة البيانات الشخصية ومعرض الصور.">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Style -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px;">
+        <img src="kitchen1.png" alt="Production Kitchen Logo" class="logo-img" style="height: 40px; width: auto; border-radius: 8px;">
+        <span style="font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.25rem; letter-spacing: 0.5px; color: var(--gold-primary);">برودكشن كتشن</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+        <li><a href="explore.html" class="nav-link">استكشف الموديلز</a></li>
+        <li><a href="dashboard.html" class="nav-link active">لوحة التحكم</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="btn btn-outline-gold" id="dashLogoutBtn">
+          <i class="fa-solid fa-right-from-bracket"></i>
+          <span>تسجيل الخروج</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main-wrapper">
+    <div class="container">
+      
+      <!-- Dashboard Top Header Bar -->
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px; flex-wrap: wrap; gap: 16px;">
+        <div>
+          <h1 class="section-title">يا هلا بيك يا غالي، <span class="gold-text" id="dashWelcomeName">الموديل</span></h1>
+          <p class="section-desc">ظبط بياناتك ودير معرض صورك بكل سهولة</p>
+        </div>
+
+        <a href="#" id="dashViewPublicProfile" target="_blank" class="btn btn-gold">
+          <i class="fa-solid fa-eye"></i>
+          <span>شوف بروفايلك قدام الناس</span>
+        </a>
+      </div>
+
+      <!-- Dashboard Layout Grid -->
+      <div class="dashboard-grid">
+        
+        <!-- Left Column: Profile Settings Form -->
+        <div class="dash-card">
+          <h2 class="dash-card-title">
+            <i class="fa-solid fa-user-gear"></i>
+            <span>تعديل البيانات الشخصية</span>
+          </h2>
+
+          <form id="dashProfileForm">
+            <div class="form-group" style="margin-bottom: 16px;">
+              <label class="form-label">الاسم بالكامل</label>
+              <input type="text" id="dashFullName" class="input-control" required placeholder="اكتب اسمك بالكامل">
+            </div>
+
+            <div class="filter-grid" style="grid-template-columns: 1fr 1fr; margin-bottom: 16px;">
+              <div class="form-group">
+                <label class="form-label">المدينة</label>
+                <input type="text" id="dashCity" class="input-control" placeholder="اكتب مدينتك">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">التخصص</label>
+                <input type="text" id="dashCategory" class="input-control" placeholder="اكتب التخصص">
+              </div>
+            </div>
+
+            <div class="filter-grid" style="grid-template-columns: 1fr 1fr; margin-bottom: 16px;">
+              <div class="form-group">
+                <label class="form-label">الطول (سم)</label>
+                <select id="dashHeight" class="input-control">
+                  <option value="">اختار الطول...</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">الوزن (كجم)</label>
+                <select id="dashWeight" class="input-control">
+                  <option value="">اختار الوزن...</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 16px;">
+              <label class="form-label"><i class="fa-brands fa-whatsapp gold-text"></i> رقم الواتساب (بالمفتاح)</label>
+              <input type="text" id="dashWhatsapp" class="input-control" placeholder="مثال: 966501234567" required>
+            </div>
+
+            <div class="filter-grid" style="grid-template-columns: 1fr 1fr; margin-bottom: 16px;">
+              <div class="form-group">
+                <label class="form-label"><i class="fa-brands fa-instagram gold-text"></i> رابط إنستجرام</label>
+                <input type="url" id="dashInstagram" class="input-control" placeholder="https://instagram.com/username">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label"><i class="fa-brands fa-tiktok gold-text"></i> رابط تيك توك</label>
+                <input type="url" id="dashTiktok" class="input-control" placeholder="https://tiktok.com/@username">
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 20px;">
+              <label class="form-label"><i class="fa-solid fa-camera gold-text"></i> الصورة الشخصية (ارفعها من جهازك)</label>
+              <div style="display: flex; align-items: center; gap: 16px;">
+                <img id="dashAvatarPreview" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=800" alt="Avatar Preview" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold-primary);">
+                <div style="flex: 1;">
+                  <input type="file" id="dashAvatarFileInput" accept="image/*" class="input-control" style="width: 100%;">
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 24px;">
+              <label class="form-label">نبذة عنك (Bio)</label>
+              <textarea id="dashBio" class="input-control" rows="4" placeholder="اكتب نبذة عن خبرتك وإنجازاتك..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-gold" style="width: 100%;">
+              <i class="fa-solid fa-floppy-disk"></i>
+              <span>احفظ التغييرات</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Right Column: Portfolio & Storage Image Upload Section -->
+        <div class="dash-card">
+          <h2 class="dash-card-title">
+            <h2 style="font-size: 1.4rem; font-weight: 800; display: flex; align-items: center; gap: 10px;">
+              <i class="fa-solid fa-cloud-arrow-up"></i>
+              <span>إدارة معرض الصور</span>
+            </h2>
+          </h2>
+
+          <!-- Upload Dropzone Form -->
+          <form id="dashUploadForm">
+            <div class="upload-box" id="uploadDropzone">
+              <i class="fa-solid fa-images upload-icon"></i>
+              <div class="upload-title">اضغط هنا واختار صورة من جهازك</div>
+              <div class="upload-hint">رفع مباشر من جهازك لمعرض الصور</div>
+              <input type="file" id="portfolioFileInput" accept="image/*" style="display: none;">
+            </div>
+
+            <div id="fileSelectedInfo" style="display: none; margin-bottom: 16px; background: rgba(212, 175, 55, 0.1); padding: 12px; border-radius: var(--radius-md); border: 1px solid var(--border-gold); align-items: center; justify-content: space-between;">
+              <span id="fileNameDisplay" style="font-weight: 600; color: var(--gold-light);"></span>
+              <button type="button" id="clearFileBtn" class="btn btn-outline-gold" style="padding: 4px 12px; font-size: 0.8rem;">إلغاء</button>
+            </div>
+
+            <button type="submit" class="btn btn-gold" id="uploadSubmitBtn" style="width: 100%; margin-bottom: 32px;">
+              <i class="fa-solid fa-upload"></i>
+              <span>ارفع الصورة للمعرض</span>
+            </button>
+          </form>
+
+          <!-- Current Portfolio Preview & Delete Grid -->
+          <div style="border-top: 1px solid var(--border-subtle); padding-top: 24px;">
+            <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 16px; color: var(--text-main); display: flex; justify-content: space-between; align-items: center;">
+              <span>صورك الحالية</span>
+              <span class="gold-badge" id="dashPhotoCount">0 صور</span>
+            </h3>
+
+            <div class="dash-portfolio-grid" id="dashPortfolioGrid">
+              <!-- Dynamically populated preview photos with delete icons -->
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-logo" style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+      <img src="kitchen1.png" alt="Production Kitchen Logo" style="height: 32px; width: auto; border-radius: 6px;">
+      <span style="font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.25rem; letter-spacing: 0.5px; color: var(--gold-primary);">برودكشن كتشن</span>
+    </div>
+    <p>جميع الحقوق محفوظة © 2026 - برودكشن كتشن</p>
+  </footer>
+
+  <!-- Toast Notification System -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Supabase CDN JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <!-- Configuration & Script -->
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
