@@ -1029,3 +1029,78 @@ select.input-control option {
   margin-bottom: 16px;
   opacity: 0.6;
 }
+
+/* Responsive Helpers & Mobile Adjustments */
+img, video, svg, canvas {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+input[type="file"], input, textarea, select, button {
+  max-width: 100%;
+}
+
+.input-control {
+  width: 100%;
+}
+
+/* Make nav wrap instead of overflowing on small screens */
+.nav-container {
+  flex-wrap: wrap;
+}
+
+/* Reduce large paddings/fonts gradually */
+@media (max-width: 992px) {
+  .container { padding: 28px 16px; }
+  .hero { padding: 56px 16px 72px; }
+  .hero-title { font-size: 2.4rem; }
+  .hero-subtitle { font-size: 1rem; }
+}
+
+@media (max-width: 768px) {
+  .navbar { height: 64px; }
+  .nav-container { padding: 0 14px; align-items: center; }
+  .logo { font-size: 1.15rem; gap: 8px; }
+  .nav-links { gap: 12px; flex-wrap: wrap; width: 100%; justify-content: flex-end; margin-top: 8px; }
+  .nav-actions { margin-top: 8px; width: 100%; display: flex; justify-content: flex-start; gap: 12px; }
+
+  .hero { padding: 36px 12px 48px; }
+  .hero-title { font-size: 1.8rem; max-width: 100%; }
+  .hero-subtitle { font-size: 0.98rem; max-width: 100%; }
+  .hero-actions .btn { padding: 12px 18px; font-size: 0.95rem; }
+
+  .features-grid { gap: 18px; }
+  .feature-card { padding: 20px; }
+
+  .models-grid { gap: 18px; }
+  .model-thumb-container { height: 200px; }
+
+  .profile-header-card { padding: 20px; }
+  .profile-hero-content { flex-direction: column; gap: 18px; }
+  .profile-avatar-wrapper { width: 120px; height: 120px; }
+  .profile-name { font-size: 1.6rem; }
+  .profile-bio { font-size: 0.98rem; max-width: 100%; }
+
+  .portfolio-grid { gap: 14px; }
+
+  .dash-card { padding: 20px; }
+  .upload-box { padding: 28px 14px; }
+
+  .modal-box { padding: 20px; width: 100%; max-width: 95%; }
+
+  .toast-container { right: 12px; left: auto; left: 12px; }
+
+  .footer { padding: 24px 12px; font-size: 0.9rem; }
+}
+
+@media (max-width: 480px) {
+  .hero-title { font-size: 1.5rem; }
+  .hero-subtitle { font-size: 0.92rem; }
+  .nav-links { justify-content: flex-end; gap: 8px; }
+  .profile-avatar-wrapper { width: 100px; height: 100px; }
+  .model-thumb-container { height: 160px; }
+  .feature-title { font-size: 1.05rem; }
+  .btn { padding: 10px 14px; font-size: 0.95rem; }
+}
+
