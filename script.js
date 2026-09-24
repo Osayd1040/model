@@ -7,6 +7,27 @@ let currentUser = JSON.parse(localStorage.getItem('models_app_user')) || null;
 let localModels = JSON.parse(localStorage.getItem('models_app_demo_models')) || DEMO_MODELS;
 let localPortfolio = JSON.parse(localStorage.getItem('models_app_demo_portfolio')) || DEMO_PORTFOLIO;
 
+const DEFAULT_AVATAR_URL = 'default-avatar.svg';
+const LEGACY_DEFAULT_AVATAR_MARKERS = [
+  'photo-1534528741775-53994a69daeb'
+];
+
+function getAvatarUrl(avatarUrl) {
+  const value = typeof avatarUrl === 'string' ? avatarUrl.trim() : '';
+  if (!value || LEGACY_DEFAULT_AVATAR_MARKERS.some(marker => value.includes(marker))) {
+    return DEFAULT_AVATAR_URL;
+  }
+  return value;
+}
+
+function handleAvatarError(image) {
+  if (!image || image.dataset.fallbackApplied === 'true') return;
+  image.dataset.fallbackApplied = 'true';
+  image.src = DEFAULT_AVATAR_URL;
+}
+
+window.handleAvatarError = handleAvatarError;
+
 // Save local fallback state
 function persistLocalState() {
   localStorage.setItem('models_app_demo_models', JSON.stringify(localModels));
@@ -481,7 +502,7 @@ function initAuthModal() {
               email: authEmail,
               category: category,
               city: '',
-              avatar_url: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=800'
+              avatar_url: ''
             };
             const { error: profileError } = await supabaseClient.from('profiles').upsert([newProfile], { onConflict: 'id' });
             if (profileError) {
@@ -507,7 +528,7 @@ function initAuthModal() {
           height: "175 سم",
           weight: "60 كجم",
           bio: "موديل لسه منضم جديد على المنصة.",
-          avatar_url: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=800",
+          avatar_url: "",
           role: "model"
         };
         localModels.unshift(newModel);
@@ -531,13 +552,13 @@ function initAuthModal() {
    Model Card Component Generator
    ========================================================================== */
 function createModelCardHTML(model) {
-  const avatar = model.avatar_url || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=800';
+  const avatar = getAvatarUrl(model.avatar_url);
   const whatsappUrl = `https://wa.me/${model.whatsapp_number}?text=${encodeURIComponent('أهلاً ' + model.full_name + '، كنت حابب اتواصل معاك من منصة الموديلز')}`;
 
   return `
     <div class="model-card">
       <div class="model-thumb-container">
-        <img src="${avatar}" alt="${model.full_name}" class="model-thumb">
+        <img src="${avatar}" alt="${model.full_name}" class="model-thumb" onerror="handleAvatarError(this)">
         <div class="model-badge-overlay">
           <span class="gold-badge">
             <i class="fa-solid fa-sparkles"></i>
@@ -647,7 +668,9 @@ async function initProfilePage() {
 
   // Bind Header Fields
   document.title = `${model.full_name} | منصة الموديلز`;
-  document.getElementById('profileAvatar').src = model.avatar_url || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=800';
+  const profileAvatar = document.getElementById('profileAvatar');
+  profileAvatar.src = getAvatarUrl(model.avatar_url);
+  profileAvatar.onerror = () => handleAvatarError(profileAvatar);
   document.getElementById('profileName').textContent = model.full_name;
   document.getElementById('profileCategory').textContent = model.category || 'موديل';
   document.getElementById('profileBio').textContent = model.bio || 'لسه مكتبش نبذة عن نفسه.';
@@ -811,8 +834,9 @@ async function initDashboardPage() {
 
   const avatarPreview = document.getElementById('dashAvatarPreview');
   const avatarFileInput = document.getElementById('dashAvatarFileInput');
-  if (avatarPreview && currentUser.avatar_url) {
-    avatarPreview.src = currentUser.avatar_url;
+  if (avatarPreview) {
+    avatarPreview.src = getAvatarUrl(currentUser.avatar_url);
+    avatarPreview.onerror = () => handleAvatarError(avatarPreview);
   }
 
   let selectedAvatarFile = null;
@@ -833,7 +857,7 @@ async function initDashboardPage() {
   dashProfileForm.onsubmit = async (e) => {
     e.preventDefault();
 
-    let avatarUrl = currentUser.avatar_url;
+    let avatarUrl = getAvatarUrl(currentUser.avatar_url) === DEFAULT_AVATAR_URL ? '' : currentUser.avatar_url;
     if (selectedAvatarFile) {
       const uploadedAvatarUrl = await uploadAvatarFile(currentUser.id, selectedAvatarFile);
       if (uploadedAvatarUrl) {

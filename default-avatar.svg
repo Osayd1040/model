@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 800" role="img" aria-labelledby="title desc">
+  <title id="title">صورة شخصية افتراضية</title>
+  <desc id="desc">أيقونة مستخدم محايدة للحسابات التي لا تحتوي على صورة</desc>
+  <rect width="640" height="800" fill="#171717"/>
+  <circle cx="320" cy="300" r="122" fill="#d6b86a"/>
+  <path d="M104 752c12-166 94-252 216-252s204 86 216 252H104Z" fill="#d6b86a"/>
+</svg>
