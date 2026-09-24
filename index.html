@@ -3,202 +3,169 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>منصة الموديلز | الدليل الاحترافي المباشر</title>
-  <meta name="description" content="منصة رائدة لتصفح وتوظيف أفضل الموديلز والعارضين في المملكة، مع تواصل مباشر على الواتساب.">
-  
-  <!-- Font Awesome Icons -->
+  <title>برودكشن كتشن | وجوه جاهزة للتصوير</title>
+  <meta name="description" content="دليل مباشر لاختيار المودلز والوجوه الإعلانية في السعودية والتواصل معهم دون وسيط.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  <!-- Custom Style -->
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="landing.css">
 </head>
-<body>
+<body class="landing-page">
+  <nav class="landing-nav" aria-label="التنقل الرئيسي">
+    <a href="index.html" class="landing-brand" aria-label="برودكشن كتشن - الرئيسية">
+      <img src="kitchen1.png" alt="" class="landing-brand__mark">
+      <span class="landing-brand__name">برودكشن كتشن</span>
+      <span class="landing-brand__edition">CASTING / 2026</span>
+    </a>
 
-  <!-- Navigation Bar -->
-  <nav class="navbar">
-    <div class="nav-container">
-      <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px;">
-        <img src="kitchen1.png" alt="Production Kitchen Logo" class="logo-img" style="height: 40px; width: auto; border-radius: 8px;">
-        <span style="font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.25rem; letter-spacing: 0.5px; color: var(--gold-primary);">برودكشن كتشن</span>
-      </a>
-
-      <ul class="nav-links">
-        <li><a href="index.html" class="nav-link active">الرئيسية</a></li>
-        <li><a href="explore.html" class="nav-link">استكشف الموديلز</a></li>
-      </ul>
-
-      <div class="nav-actions">
-        <button class="btn btn-outline-gold" id="navAuthBtn">
-          <i class="fa-solid fa-user"></i>
-          <span>تسجيل الدخول</span>
-        </button>
-      </div>
+    <div class="landing-nav__links">
+      <a href="#featured">الوجوه المختارة</a>
+      <a href="#how-it-works">كيف تبدأ</a>
+      <a href="explore.html">كل المودلز</a>
     </div>
+
+    <button class="landing-login" id="navAuthBtn">
+      <span>دخول المودلز</span>
+      <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+    </button>
   </nav>
 
-  <!-- Main Content -->
-  <main class="main-wrapper">
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="hero-bg-glow"></div>
-      
-      <div class="hero-tag">
-        <span class="gold-badge">
-          <i class="fa-solid fa-sparkles"></i>
-          المكان الأول للموديلز وصنّاع المحتوى
-        </span>
+  <main>
+    <section class="casting-hero" aria-labelledby="hero-title">
+      <div class="casting-hero__copy">
+        <p class="scene-label"><span>مشهد 01</span> اختيار الوجه المناسب</p>
+        <h1 id="hero-title">وجوه جاهزة<br><em>للتصوير.</em></h1>
+        <p class="casting-hero__lead">اعثر على مودل يناسب فكرتك، راجع أعماله، وتواصل معه مباشرة. لا وسيط ولا انتظار رد من وكالة.</p>
+
+        <div class="casting-hero__actions">
+          <a href="explore.html" class="action-primary">
+            <span>استعرض المودلز</span>
+            <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+          </a>
+          <button class="action-secondary" id="heroModelBtn">
+            <span>أضف ملفك كمودل</span>
+            <span class="action-secondary__note">التسجيل مجاني</span>
+          </button>
+        </div>
+
+        <dl class="casting-facts" aria-label="مميزات الخدمة">
+          <div><dt>01</dt><dd>تصفح بلا حساب</dd></div>
+          <div><dt>02</dt><dd>بيانات واضحة</dd></div>
+          <div><dt>03</dt><dd>واتساب مباشر</dd></div>
+        </dl>
       </div>
 
-      <h1 class="hero-title">
-        اكتشف أشطر <span class="gold-text">الموديلز والعارضين</span> وظبط شغلك معاهم مباشر
-      </h1>
+      <div class="casting-hero__visual" aria-label="نماذج من الوجوه المتاحة">
+        <figure class="hero-portrait hero-portrait--main">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=85&w=1200" alt="مودل في جلسة تصوير احترافية">
+          <figcaption><span>PK / 001</span><strong>أزياء وإعلانات</strong></figcaption>
+        </figure>
+        <figure class="hero-portrait hero-portrait--side">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=85&w=700" alt="مودل إعلاني">
+          <figcaption><span>PK / 014</span><strong>وجه إعلاني</strong></figcaption>
+        </figure>
+        <div class="casting-stamp" aria-hidden="true">متاح<br>للحجز</div>
+      </div>
+    </section>
 
-      <p class="hero-subtitle">
-        منصة احترافية بتجمع أشطر المواهب في عروض الأزياء والإعلانات. من غير وسطاء، كلمهم فوري على الواتساب.
-      </p>
+    <section class="proof-strip" aria-label="طريقة الخدمة المختصرة">
+      <p>من أول البحث إلى أول رسالة واتساب</p>
+      <div class="proof-strip__track">
+        <span>حدد المدينة والتخصص</span><b>—</b>
+        <span>راجع الملف والصور</span><b>—</b>
+        <span>اتفق مباشرة</span>
+      </div>
+    </section>
 
-      <div class="hero-actions">
-        <a href="explore.html" class="btn btn-gold">
-          <i class="fa-solid fa-magnifying-glass"></i>
-          <span>دور على موديل</span>
-        </a>
-        <button class="btn btn-outline-gold" id="heroModelBtn">
-          <i class="fa-solid fa-star"></i>
-          <span>أنا موديل</span>
+    <section class="featured-casting" id="featured" aria-labelledby="featured-title">
+      <header class="section-intro">
+        <div>
+          <p class="scene-label"><span>مشهد 02</span> قائمة مختصرة</p>
+          <h2 id="featured-title">ابدأ بهذه الوجوه</h2>
+        </div>
+        <p>ثلاثة ملفات مختارة كبداية. افتح الملف الكامل للمقاسات والخبرة، أو انتقل للدليل لتصفية النتائج حسب مدينتك.</p>
+      </header>
+
+      <div class="models-grid landing-models" id="featuredModelsGrid">
+        <!-- Dynamic model cards inserted by script.js -->
+      </div>
+
+      <a href="explore.html" class="directory-link">
+        <span>افتح دليل المودلز كاملًا</span>
+        <span aria-hidden="true">←</span>
+      </a>
+    </section>
+
+    <section class="process-section" id="how-it-works" aria-labelledby="process-title">
+      <div class="process-section__title">
+        <p class="scene-label"><span>مشهد 03</span> من الفكرة إلى التصوير</p>
+        <h2 id="process-title">اختيار أسرع.<br>اتفاق أوضح.</h2>
+      </div>
+
+      <ol class="process-list">
+        <li>
+          <span>01</span>
+          <div><h3>اكتب ما تحتاجه</h3><p>مدينة التصوير، نوع المشروع، والتخصص المطلوب.</p></div>
+        </li>
+        <li>
+          <span>02</span>
+          <div><h3>قارن ملفات حقيقية</h3><p>صور، مقاسات، خبرة وروابط اجتماعية في مكان واحد.</p></div>
+        </li>
+        <li>
+          <span>03</span>
+          <div><h3>ابدأ المحادثة</h3><p>زر واتساب مباشر في كل ملف. أنت والمودل تتفقان دون طرف ثالث.</p></div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="final-call" aria-labelledby="final-title">
+      <div>
+        <p class="final-call__eyebrow">للمودلز وصنّاع المحتوى</p>
+        <h2 id="final-title">خلي شغلك<br>هو اللي يعرّفك.</h2>
+      </div>
+      <div class="final-call__copy">
+        <p>أنشئ ملفك، أضف صورك وبياناتك، وكن حاضرًا عندما تبحث فرق الإنتاج عن الوجه التالي.</p>
+        <button class="final-call__button" onclick="document.getElementById('heroModelBtn').click()">
+          أنشئ ملفك مجانًا <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
         </button>
-      </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="container features-section">
-      <div class="section-header">
-        <h2 class="section-title">ليه تختار <span class="gold-text">منصة الموديلز</span>؟</h2>
-        <p class="section-desc">تجربة سهلة وفاخرة بتجمع بين البساطة والاحترافية</p>
-      </div>
-
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">
-            <i class="fa-brands fa-whatsapp"></i>
-          </div>
-          <h3 class="feature-title">واتساب مباشر على طول</h3>
-          <p class="feature-text">
-            مش محتاج مراسلات طويلة أو وسطاء، هتقدر توصل لرقم الواتساب وتنسق معاه على طول.
-          </p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">
-            <i class="fa-solid fa-image"></i>
-          </div>
-          <h3 class="feature-title">معرض صور زي إنستجرام</h3>
-          <p class="feature-text">
-            بروفايلات شياكة بتعرض شغلك ومقاساتك وبياناتك بكل دقة وجاذبية.
-          </p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">
-            <i class="fa-solid fa-shield-halved"></i>
-          </div>
-          <h3 class="feature-title">تصفح مجاني بالكامل</h3>
-          <p class="feature-text">
-            الشركات والعملاء يقدروا يدوروا ويتصفحوا براحتهم خالص ومن غير ما يعملوا حساب.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Featured Preview Section -->
-    <section class="container">
-      <div class="section-header">
-        <h2 class="section-title">نخبة من <span class="gold-text">الموديلز المتميزين</span></h2>
-        <p class="section-desc">أبرز المواهب في مجالات الأزياء والإعلانات اللي منورين المنصة</p>
-      </div>
-
-      <div class="models-grid" id="featuredModelsGrid">
-        <!-- Dynamic Featured Cards inserted via JS -->
-      </div>
-
-      <div style="text-align: center; margin-top: 40px;">
-        <a href="explore.html" class="btn btn-outline-gold">
-          <span>شوف كل الموديلز</span>
-          <i class="fa-solid fa-arrow-left"></i>
-        </a>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-logo" style="display: flex; align-items: center; justify-content: center; gap: 10px;">
-      <img src="kitchen1.png" alt="Production Kitchen Logo" style="height: 32px; width: auto; border-radius: 6px;">
-      <span style="font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1.25rem; letter-spacing: 0.5px; color: var(--gold-primary);">برودكشن كتشن</span>
+  <footer class="landing-footer">
+    <div class="landing-footer__brand">
+      <img src="kitchen1.png" alt="" aria-hidden="true">
+      <strong>برودكشن كتشن</strong>
     </div>
-    <p>جميع الحقوق محفوظة © 2026 - برودكشن كتشن</p>
+    <p>منصة مستقلة تجمع فرق الإنتاج بالمودلز مباشرة.</p>
+    <p>© 2026</p>
   </footer>
 
-  <!-- Auth Modal Dialog -->
   <div class="modal-overlay" id="authModal">
     <div class="modal-box">
-      <div class="modal-close" id="modalCloseBtn">
-        <i class="fa-solid fa-xmark"></i>
-      </div>
-
+      <div class="modal-close" id="modalCloseBtn"><i class="fa-solid fa-xmark"></i></div>
       <div class="modal-tabs">
         <div class="modal-tab active" id="tabLogin">تسجيل الدخول</div>
         <div class="modal-tab" id="tabRegister">اعمل حساب جديد</div>
       </div>
-
-      <!-- Login Form -->
       <form id="loginForm" class="auth-form">
-        <div class="form-group" style="margin-bottom: 16px;">
-          <label class="form-label">الإيميل</label>
-          <input type="email" id="loginEmail" class="input-control" placeholder="اكتب الإيميل" required>
-        </div>
-
-        <div class="form-group" style="margin-bottom: 24px;">
-          <label class="form-label">كلمة السر</label>
-          <input type="password" id="loginPassword" class="input-control" placeholder="اكتب كلمة السر" required>
-        </div>
-
-        <button type="submit" class="btn btn-gold" style="width: 100%;">
-          <span>ادخل على حسابك</span>
-          <i class="fa-solid fa-arrow-left"></i>
-        </button>
+        <div class="form-group auth-field"><label class="form-label">الإيميل</label><input type="email" id="loginEmail" class="input-control" placeholder="name@example.com" required></div>
+        <div class="form-group auth-field auth-field--last"><label class="form-label">كلمة السر</label><input type="password" id="loginPassword" class="input-control" placeholder="اكتب كلمة السر" required></div>
+        <button type="submit" class="btn btn-gold auth-submit"><span>ادخل على حسابك</span><i class="fa-solid fa-arrow-left"></i></button>
       </form>
-
-      <!-- Register Form -->
-      <form id="registerForm" class="auth-form" style="display: none;">
-        <div class="form-group" style="margin-bottom: 14px;">
-          <label class="form-label">الاسم بالكامل</label>
-          <input type="text" id="regFullName" class="input-control" placeholder="اكتب اسمك بالكامل" required>
-        </div>
-
-        <div class="form-group" style="margin-bottom: 14px;">
-          <label class="form-label">الإيميل</label>
-          <input type="email" id="regEmail" class="input-control" placeholder="اكتب الإيميل" required>
-        </div>
-
-        <div class="form-group" style="margin-bottom: 24px;">
-          <label class="form-label">كلمة السر</label>
-          <input type="password" id="regPassword" class="input-control" placeholder="اكتب كلمة سر قوية" required>
-        </div>
-
-        <button type="submit" class="btn btn-gold" style="width: 100%;">
-          <span>اعمل حساب جديد</span>
-          <i class="fa-solid fa-user-plus"></i>
-        </button>
+      <form id="registerForm" class="auth-form" style="display:none">
+        <div class="form-group auth-field"><label class="form-label">الاسم بالكامل</label><input type="text" id="regFullName" class="input-control" placeholder="اسمك كما سيظهر للعملاء" required></div>
+        <div class="form-group auth-field"><label class="form-label">الإيميل</label><input type="email" id="regEmail" class="input-control" placeholder="name@example.com" required></div>
+        <div class="form-group auth-field auth-field--last"><label class="form-label">كلمة السر</label><input type="password" id="regPassword" class="input-control" placeholder="6 خانات على الأقل" minlength="6" required></div>
+        <button type="submit" class="btn btn-gold auth-submit"><span>أنشئ ملفك</span><i class="fa-solid fa-user-plus"></i></button>
       </form>
     </div>
   </div>
 
-  <!-- Toast Notification System -->
   <div class="toast-container" id="toastContainer"></div>
-
-  <!-- Supabase CDN JS -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
-  <!-- Configuration & Script -->
   <script src="config.js"></script>
   <script src="script.js"></script>
 </body>
