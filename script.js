@@ -4,8 +4,22 @@
 
 // Global State
 let currentUser = JSON.parse(localStorage.getItem('models_app_user')) || null;
-let localModels = JSON.parse(localStorage.getItem('models_app_demo_models')) || DEMO_MODELS;
-let localPortfolio = JSON.parse(localStorage.getItem('models_app_demo_portfolio')) || DEMO_PORTFOLIO;
+
+const STATIC_DEMO_MODEL_IDS = new Set(['m-101', 'm-102', 'm-103', 'm-104', 'm-105', 'm-106']);
+const savedLocalModels = JSON.parse(localStorage.getItem('models_app_demo_models') || '[]');
+const savedLocalPortfolio = JSON.parse(localStorage.getItem('models_app_demo_portfolio') || '{}');
+
+let localModels = savedLocalModels.filter(model => !STATIC_DEMO_MODEL_IDS.has(model.id));
+let localPortfolio = { ...savedLocalPortfolio };
+STATIC_DEMO_MODEL_IDS.forEach(id => delete localPortfolio[id]);
+
+if (currentUser && STATIC_DEMO_MODEL_IDS.has(currentUser.id)) {
+  currentUser = null;
+  localStorage.removeItem('models_app_user');
+}
+
+localStorage.setItem('models_app_demo_models', JSON.stringify(localModels));
+localStorage.setItem('models_app_demo_portfolio', JSON.stringify(localPortfolio));
 
 const DEFAULT_AVATAR_URL = 'default-avatar.svg';
 const LEGACY_DEFAULT_AVATAR_MARKERS = [
@@ -600,6 +614,17 @@ async function initLandingPage() {
   const models = await fetchAllModels();
   const featured = models.slice(0, 3);
 
+  if (featured.length === 0) {
+    grid.innerHTML = `
+      <div class="empty-state">
+        <i class="fa-solid fa-users empty-icon"></i>
+        <h3>لا توجد ملفات مودلز منشورة حاليًا</h3>
+        <p>ستظهر هنا الحسابات الحقيقية بعد إنشاء ملفاتها.</p>
+      </div>
+    `;
+    return;
+  }
+
   grid.innerHTML = featured.map(createModelCardHTML).join('');
 }
 
@@ -661,9 +686,34 @@ async function initProfilePage() {
   if (!profileHeader) return;
 
   const urlParams = new URLSearchParams(window.location.search);
-  const modelId = urlParams.get('id') || (currentUser ? currentUser.id : "m-101");
+  const modelId = urlParams.get('id') || (currentUser ? currentUser.id : null);
+
+  if (!modelId) {
+    document.title = 'الملف غير موجود | منصة الموديلز';
+    profileHeader.innerHTML = `
+      <div class="empty-state">
+        <i class="fa-solid fa-user-slash empty-icon"></i>
+        <h3>الملف غير موجود</h3>
+        <p>ارجع إلى دليل المودلز واختر حسابًا حقيقيًا.</p>
+      </div>
+    `;
+    return;
+  }
 
   const model = await fetchModelById(modelId);
+
+  if (!model) {
+    document.title = 'الملف غير موجود | منصة الموديلز';
+    profileHeader.innerHTML = `
+      <div class="empty-state">
+        <i class="fa-solid fa-user-slash empty-icon"></i>
+        <h3>الملف غير موجود</h3>
+        <p>قد يكون الحساب محذوفًا أو أن الرابط غير صحيح.</p>
+      </div>
+    `;
+    return;
+  }
+
   const images = await fetchPortfolioImages(modelId);
 
   // Bind Header Fields
